@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KatherineDesign3AProject2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+        }
+
+        .scroll-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .panorama-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3000px;
+            height: 100%;
+            will-change: transform;
+            display: flex;
+            align-items: center;
+        }
+
+        .panorama-image {
+            width: 3000px;
+            height: 100%;
+            background-image: url('your-image.jpg');
+            background-size: 100% 100%;
+
+            background-repeat: no-repeat;
+            /* box-shadow: 0 0 50px rgba(0, 0, 0, 0.7); */
+            position: relative;
+        }
+
+        .clickable-image {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            /* overflow: hidden; */
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 15;
+            /* border: 3px solid rgba(255, 255, 255, 0.5); */
+        }
+
+        /* .clickable-image:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 0 50px rgba(0, 200, 255, 0.9);
+            border-color: white;
+        } */
+
+        .clickable-image img {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 115px;
+            /* object-fit: cover; */
+            top: 50%;
+            left: 50%;
+        }
+
+        .clickable-image.gt-t {
+            top: 450px;
+        }
+
+        .clickable-image.ck-img1 {
+            left: 420px;
+        }
+
+        .clickable-image.ck-img2 {
+            left: 545px;
+        }
+
+        .clickable-image.ck-img3 {
+            left: 668px;
+        }
+
+        .clickable-image.ck-img4 {
+            left: 789px;
+        }
+
+        .clickable-image.ck-img5 {
+            left: 914px;
+        }
+
+        .clickable-image.ck-img6 {
+            left: 1036px;
+        }
+
+        .clickable-image.ck-img7 {
+            left: 1148px;
+
+        }
+
+        .clickable-image.ck-img8 {
+            left: 1262px;
+        }
+
+        .clickable-image.ck-img9 {
+            left: 1372px;
+
+        }
+
+        .clickable-image.ck-img10 {
+            left: 1480px;
+        }
+
+        .clickable-image.ck-img11 {
+            top: 110px;
+            left: 100px;
+        }
+
+        .clickable-image.ck-img11 img {
+            width: 155px;
+            height: 155px;
+        }
+
+        .clickable-image.ck-img12 {
+            top: 460px;
+            left: 180px;
+        }
+
+        .clickable-image.ck-img12 img {
+            width: 185px;
+            height: 185px;
+        }
+
+        .clickable-image.ck-img13 {
+            top: 92px;
+            left: 650px;
+        }
+
+        .clickable-image.ck-img13 img {
+            width: 145px;
+            height: 100px;
+        }
+
+
+        .clickable-image.ck-img14 {
+            top: 120px;
+            left: 980px;
+        }
+
+        .clickable-image.ck-img14 img {
+            width: 185px;
+            height: 185px;
+        }
+
+        .clickable-image.ck-img15 {
+            top: 260px;
+            left: 646px;
+        }
+
+        .clickable-image.ck-img15 img {
+            width: 185px;
+            height: 185px;
+        }
+
+        .clickable-image.ck-img16 {
+            top: 265px;
+            left: 960px;
+        }
+
+        .clickable-image.ck-img16 img {
+            width: 290px;
+            height: 235px;
+        }
+
+        .clickable-image.ck-img17 {
+            top: 945px;
+            left: 1663px;
+        }
+
+        .clickable-image.ck-img17 img {
+            width: 600px;
+            height: 655px;
+        }
+
+        .clickable-image.ck-img18 {
+            top: 94px;
+            left: 1720px;
+        }
+
+        .clickable-image.ck-img18 img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .clickable-image.ck-img19 {
+            top: 153px;
+            left: 1972px;
+        }
+
+        .clickable-image.ck-img19 img {
+            width: 125px;
+            height: 160px;
+        }
+
+        .clickable-image.ck-img20 {
+            top: 245px;
+            left: 1728px;
+        }
+
+        .clickable-image.ck-img20 img {
+            width: 320px;
+            height: 100px;
+        }
+
+        .clickable-image.ck-img21 {
+            top: 695px;
+            left: 1709px;
+        }
+
+        .clickable-image.ck-img21 img {
+            width: 400px;
+            height: 355px;
+        }
+
+        .clickable-image.ck-img22 {
+            top: 868px;
+            left: 1772px;
+        }
+
+        .clickable-image.ck-img22 img {
+            width: 220px;
+            height: 290px;
+        }
+
+        .clickable-image.ck-img23 {
+            top: 453px;
+            left: 2219px;
+        }
+
+        .clickable-image.ck-img23 img {
+            width: 167px;
+            height: 150px;
+        }
+
+        .clickable-image.ck-img24 {
+            top: 183px;
+            left: 2416px;
+        }
+
+        .clickable-image.ck-img24 img {
+            width: 135px;
+            height: 330px;
+        }
+
+        .clickable-image.ck-img25 {
+            top: 112px;
+            left: 2606px;
+        }
+
+        .clickable-image.ck-img25 img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .clickable-image.ck-img26 {
+            top: 200px;
+            left: 2800px;
+        }
+
+        .clickable-image.ck-img26 img {
+            width: 300px;
+            height: 260px;
+        }
+
+
+
+
+
+
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, transparent 20%, transparent 80%, rgba(0, 0, 0, 0.7) 100%);
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .scroll-indicator {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            max-width: 500px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            z-index: 20;
+            overflow: hidden;
+        }
+
+        .scroll-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #00c9ff, #92fe9d);
+            border-radius: 5px;
+            transition: width 0.2s ease-out;
+        }
+
+        .instructions {
+            position: fixed;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            z-index: 20;
+            animation: pulse 2s infinite;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.7;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            50% {
+                opacity: 1;
+                box-shadow: 0 5px 20px rgba(0, 153, 255, 0.5);
+            }
+
+            100% {
+                opacity: 0.7;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        .scroll-hint {
+            width: 100px;
+            display: inline-block;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            50% {
+                transform: translateX(10px);
+            }
+        }
+
+        .boundary-indicator {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 100px;
+            background: rgba(255, 0, 0, 0.3);
+            z-index: 15;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .left-boundary {
+            left: 0;
+        }
+
+        .right-boundary {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scroll-container">
+        <div class="panorama-container">
+            <div class="panorama-image">
+                <!-- click images -->
+                <a href="cimg.html" target="_blank" class="clickable-image gt-t ck-img1 ">
+                    <img src="word-02.PNG">
+                </a>
+                <a href="limg.html" class="clickable-image gt-t ck-img2">
+                    <img src="word-03.PNG">
+                </a>
+                <a href="uimg.html" class="clickable-image gt-t ck-img3">
+                    <img src="word-04.PNG">
+                </a>
+                <a href="ttimg.html" class="clickable-image gt-t ck-img4">
+                    <img src="word-05.PNG">
+                </a>
+                <a href="eimg.html" class="clickable-image gt-t ck-img5">
+                    <img src="word-06.PNG">
+                </a>
+                <a href="rimg.html" class="clickable-image gt-t ck-img6">
+                    <img src="word-07.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image gt-t ck-img7">
+                    <img src="word-08.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image gt-t ck-img8">
+                    <img src="word-09.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image gt-t ck-img9">
+                    <img src="word-10.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image gt-t ck-img10">
+                    <img src="word-11.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image ck-img11">
+                    <img src="clock copy.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image ck-img12">
+                    <img src="cat copy.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image ck-img13">
+                    <img src="camera copy.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image ck-img14">
+                    <img src="tape copy.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image ck-img15">
+                    <img src="frame copy.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image ck-img16">
+                    <img src="film copy.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image ck-img17">
+                    <img src="unber copy.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image ck-img18">
+                    <img src="route 66 copy.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image ck-img19">
+                    <img src="247 copy.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image ck-img20">
+                    <img src="2707 copy.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image ck-img21">
+                    <img src="book copy.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image ck-img22">
+                    <img src="timecount copy.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image ck-img23">
+                    <img src="key copy.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image ck-img24">
+                    <img src="light copy.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image ck-img25">
+                    <img src="vab copy.PNG">
+                </a>
+                <a href="javascript:void(0)" class="clickable-image ck-img26">
+                    <img src="board copy.PNG">
+                </a>
+            </div>
+        </div>
+        <div class="overlay"></div>
+
+        <div class="scroll-indicator">
+            <div class="scroll-progress"></div>
+        </div>
+
+        <div class="instructions">
+            Curate Your Wall <span class="scroll-hint">↔</span>
+        </div>
+
+        <div class="boundary-indicator left-boundary">←</div>
+        <div class="boundary-indicator right-boundary">→</div>
+    </div>
+
+    <script>
+        // DOM elements
+        const panorama = document.querySelector('.panorama-container');
+        const progressBar = document.querySelector('.scroll-progress');
+        const leftBoundaryIndicator = document.querySelector('.left-boundary');
+        const rightBoundaryIndicator = document.querySelector('.right-boundary');
+        const dragHint = document.querySelector('.drag-hint');
+
+        const imageWidth = 3000;
+
+        // scroll state var
+        let currentPosition = 0;
+        let targetPosition = 0;
+        let isAnimating = false;
+        let lastScrollTime = 0;
+        let velocity = 0;
+
+        // position limit var （px）
+        let maxPosition = 0; // right
+        let minPosition = 0; // smallest position (cal when it start)
+
+        // boundary- in case over scroll
+        const boundaryBuffer = 50; // px
+
+        const friction = 1.5; // Frictional force
+        const stiffness = 0.2; 
+        const sensitivity = 0.03; // Rolling sensitivity
+        const boundaryStiffness = 0.5; 
+
+        // drag image var
+        let isDraggingImage = false;
+        let draggedImage = null;
+        let dragStartX = 0;
+        let dragStartY = 0;
+        let imageStartLeft = 0;
+        let imageStartTop = 0;
+        let dragHintTimeout = null;
+
+        // Initialization function
+        function init() {
+            // 计算最小位置
+            minPosition = -(imageWidth - window.innerWidth);
+            // 更新UI元素
+            updateUI();
+            // 添加事件监听器
+            window.addEventListener('wheel', handleWheel, { passive: false });
+            document.addEventListener('keydown', handleKeyDown);
+            document.addEventListener('touchstart', handleTouchStart);
+            document.addEventListener('touchmove', handleTouchMove);
+
+            // image add + drag
+            initImageDragging();
+
+            // highlight when drag
+            showDragHint();
+        }
+        function initImageDragging() {
+            const clickableImages = document.querySelectorAll('.clickable-image');
+
+            clickableImages.forEach(image => {
+                // mouse event
+                image.addEventListener('mousedown', startImageDrag);
+
+                // touch eveny
+                image.addEventListener('touchstart', startImageDrag, { passive: false });
+
+                // avoid hyberlink trige when drag
+                image.addEventListener('dragstart', (e) => e.preventDefault());
+            });
+
+            // gobal event listener 
+            document.addEventListener('mousemove', dragImage);
+            document.addEventListener('mouseup', stopImageDrag);
+            document.addEventListener('touchmove', dragImage, { passive: false });
+            document.addEventListener('touchend', stopImageDrag);
+        }
+
+        function startImageDrag(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            //drag state
+            isDraggingImage = true;
+            draggedImage = e.currentTarget;
+
+            // get inital position
+            if (e.type === 'touchstart') {
+                dragStartX = e.touches[0].clientX;
+                dragStartY = e.touches[0].clientY;
+            } else {
+                dragStartX = e.clientX;
+                dragStartY = e.clientY;
+            }
+
+            // get position
+            const style = window.getComputedStyle(draggedImage);
+            imageStartLeft = parseInt(style.left);
+            imageStartTop = parseInt(style.top);
+
+            draggedImage.classList.add('dragging');
+            hideDragHint();
+        }
+
+        function dragImage(e) {
+            if (!isDraggingImage || !draggedImage) return;
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            let clientX, clientY;
+
+            if (e.type === 'touchmove') {
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+            } else {
+                clientX = e.clientX;
+                clientY = e.clientY;
+            }
+
+            // cal moving distance
+            const deltaX = clientX - dragStartX;
+            const deltaY = clientY - dragStartY;
+
+            // update image position
+            const newLeft = imageStartLeft + deltaX;
+            const newTop = imageStartTop + deltaY;
+
+            // frame image in visiable site
+            const maxLeft = imageWidth - parseInt(window.getComputedStyle(draggedImage).width) / 2;
+            const minLeft = parseInt(window.getComputedStyle(draggedImage).width) / 2;
+            const maxTop = window.innerHeight - parseInt(window.getComputedStyle(draggedImage).height) / 2;
+            const minTop = parseInt(window.getComputedStyle(draggedImage).height) / 2;
+
+            const boundedLeft = Math.max(minLeft, Math.min(newLeft, maxLeft));
+            const boundedTop = Math.max(minTop, Math.min(newTop, maxTop));
+
+            // use the new position
+            draggedImage.style.left = `${boundedLeft}px`;
+            draggedImage.style.top = `${boundedTop}px`;
+        }
+
+        function stopImageDrag() {
+            if (!isDraggingImage) return;
+
+            isDraggingImage = false;
+
+            if (draggedImage) {
+                draggedImage.classList.remove('dragging');
+                draggedImage = null;
+            }
+        }
+
+        // highlight when drage
+        function showDragHint() {
+            clearTimeout(dragHintTimeout);
+            dragHint.classList.add('show');
+
+            dragHintTimeout = setTimeout(() => {
+                hideDragHint();
+            }, 3000);
+        }
+
+        // hide drag highlight
+        function hideDragHint() {
+            dragHint.classList.remove('show');
+        }
+
+        // lisener for scroll event
+        function handleWheel(e) {
+            // if is dragging image, stop gobal scorller
+            if (isDraggingImage) return;
+
+            e.preventDefault();
+            const now = Date.now();
+            const deltaTime = now - lastScrollTime;
+            lastScrollTime = now;
+            // cal the speed (time interval)
+            const currentVelocity = e.deltaY / (deltaTime || 16);
+            // smooth when the speed change
+            velocity = 0.7 * velocity + 0.3 * currentVelocity;
+            // use horizontal scroll to update the target position
+            targetPosition += velocity * sensitivity * 50;
+            // (with buffer zone)
+            applyBoundaryConstraints();
+            // start animation cycle
+            if (!isAnimating) {
+                isAnimating = true;
+                requestAnimationFrame(animate);
+            }
+        }
+
+
+        function applyBoundaryConstraints() {
+            // chech if close to the boundary
+            const nearLeftBoundary = targetPosition < minPosition + boundaryBuffer;
+            const nearRightBoundary = targetPosition > maxPosition - boundaryBuffer;
+
+            // if close, increas velocity
+            if (nearLeftBoundary || nearRightBoundary) {
+                velocity *= 0.8;
+            }
+
+            // frame it in the site
+            targetPosition = Math.max(minPosition, Math.min(targetPosition, maxPosition));
+        }
+
+        function animate() {
+            // cal the position distance
+            let displacement = targetPosition - currentPosition;
+
+            // check boundary 
+            const atLeftBoundary = currentPosition <= minPosition;
+            const atRightBoundary = currentPosition >= maxPosition;
+
+            // add velocity when it close to the boundary 
+            if (atLeftBoundary || atRightBoundary) {
+                // cal boundary offset
+                const boundaryOffset = atLeftBoundary ?
+                    (currentPosition - minPosition) :
+                    (currentPosition - maxPosition);
+                // add extra elasticity
+                displacement += boundaryOffset * boundaryStiffness;
+            }
+
+            const acceleration = displacement * stiffness - velocity * friction;
+
+            // update speed and position
+            velocity += acceleration;
+            currentPosition += velocity;
+
+            // frame it in the site
+            currentPosition = Math.max(minPosition, Math.min(currentPosition, maxPosition));
+
+            // reset speed when touch the boundary
+            if (currentPosition <= minPosition || currentPosition >= maxPosition) {
+                velocity = 0;
+            }
+            panorama.style.transform = `translate3d(${currentPosition}px, 0, 0)`;
+            updateUI();
+
+            // keep repeat animarion until reaction done
+            if (Math.abs(velocity) > 0.01 || Math.abs(displacement) > 0.1) {
+                requestAnimationFrame(animate);
+            } else {
+                isAnimating = false;
+            }
+        }
+
+        function updateUI() {
+            updateProgressBar();
+        }
+
+        function updateProgressBar() {
+            const progress = (currentPosition - minPosition) / (maxPosition - minPosition) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // keyboard support
+        function handleKeyDown(e) {
+            if (e.key === 'ArrowRight') {
+                targetPosition -= 50;
+            } else if (e.key === 'ArrowLeft') {
+                targetPosition += 50;
+            }
+
+            applyBoundaryConstraints();
+
+            // start animation cycle
+            if (!isAnimating) {
+                isAnimating = true;
+                requestAnimationFrame(animate);
+            }
+        }
+
+        // touch support
+        let touchStartX = 0;
+        let touchStartPosition = 0;
+
+        function handleTouchStart(e) {
+            // If the touch is an image, the image drag will be processed first
+            if (e.target.closest('.clickable-image')) {
+                return;
+            }
+
+            touchStartX = e.touches[0].clientX;
+            touchStartPosition = currentPosition;
+            velocity = 0; // reset speed
+        }
+
+        function handleTouchMove(e) {
+            if (isDraggingImage) return;
+
+            e.preventDefault();
+            const touchX = e.touches[0].clientX;
+            const deltaX = touchX - touchStartX;
+
+            //update
+            targetPosition = touchStartPosition + deltaX;
+
+            applyBoundaryConstraints();
+
+            // start animation cycle
+            if (!isAnimating) {
+                isAnimating = true;
+                requestAnimationFrame(animate);
+            }
+        }
+
+        window.addEventListener('resize', function () {
+            // recal
+            minPosition = -(imageWidth - window.innerWidth);
+
+            // to make sure the position is in boundury
+            currentPosition = Math.max(minPosition, Math.min(currentPosition, maxPosition));
+            targetPosition = currentPosition;
+
+            updateUI();
+        });
+
+        // Initialization
+        init();
+    </script>
+</body>
+
+</html>

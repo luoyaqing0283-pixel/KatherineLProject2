@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 0px;
+            height: 100vh;
+            background: #5f6160;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1920px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 0px;
+            padding: 0px;
+        }
+
+        .img-container {
+            position: relative;
+            width: 100%;
+            height: 1080px;
+            border-radius: 0px;
+            overflow: hidden;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .clickable-overlay {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            z-index: 10;
+        }
+
+        .clickable-image {
+            display: inline-block;
+            margin-top: 400px;
+            margin-right: 10px;
+        }
+
+        .clickable-image img {
+            width: 500px;
+            height: 500px;
+            object-fit: contain;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="img-container">
+            <img src="c.jpg">
+            <div class="clickable-overlay">
+                <a href="https://www.bbc.com/culture/article/20210430-cluttercore-the-joy-of-a-maximalist-home" class="clickable-image">
+                    <img src="frame copy.PNG">
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

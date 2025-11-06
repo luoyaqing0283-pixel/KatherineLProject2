@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tt</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 0px;
+            height: 100vh;
+            background: #5f6160;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1920px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 0px;
+            padding: 0px;
+            position: relative;
+        }
+
+        .img-container {
+            position: relative;
+            width: 100%;
+            height: 1080px;
+            border-radius: 0px;
+            overflow: hidden;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .clickable-overlay {
+            position: absolute;
+            top: 100px;
+            right: 100px;
+            z-index: 10;
+        }
+
+        .clickable-image {
+            display: inline-block;
+        }
+
+        .clickable-image img {
+            width: 500px;
+            height: 500px;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .clickable-overlay2 {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            z-index: 10;
+        }
+
+        .clickable-image2 {
+            display: inline-block;
+        }
+
+        .clickable-image2 img {
+            width: 500px;
+            height: 500px;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="img-container">
+            <img src="tt.jpg">
+
+            <div class="clickable-overlay">
+                <a href="https://www.instagram.com/thecluttercore/" class="clickable-image">
+                    <img src="tape copy.png">
+                </a >
+            </div>
+            <div class="clickable-overlay2">
+                <a href="https://www.tiktok.com/discover/cluttercore" class="clickable-image2">
+                    <img src="clock copy.png">
+                </a >
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
