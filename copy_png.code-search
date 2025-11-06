@@ -1,0 +1,34 @@
+# Query: copy.png
+# Flags: IgnoreExcludeSettings
+# ContextLines: 1
+
+6 results - 5 files
+
+KatherineLProject2/cimg.html:
+  76                  <a href="https://www.bbc.com/culture/article/20210430-cluttercore-the-joy-of-a-maximalist-home" class="clickable-image">
+  77:                     <img src="frame .png">
+  78                  </a>
+
+KatherineLProject2/eimg.html:
+  76                  <a href="https://decormatters.com/blog/cluttercore-creating-a-cozy-and-personalized-home-with-sentimental-objects" class="clickable-image">
+  77:                     <img src="cat .png">
+  78                  </a>
+
+KatherineLProject2/limg.html:
+  76                  <a href="https://www.architecturaldigest.com/story/cluttercore-chaotic-good-tiktok-trend" class="clickable-image">
+  77:                     <img src="board .png">
+  78                  </a>
+
+KatherineLProject2/rimg.html:
+  76                  <a href="https://www.reddit.com/r/cluttercore/" class="clickable-image">
+  77:                     <img src="film .png">
+  78                  </a>
+
+KatherineLProject2/ttimg.html:
+   97                  <a href="https://www.instagram.com/thecluttercore/" class="clickable-image">
+   98:                     <img src="tape .png">
+   99                  </a >
+
+  102                  <a href="https://www.tiktok.com/discover/cluttercore" class="clickable-image2">
+  103:                     <img src="clock .png">
+  104                  </a >
